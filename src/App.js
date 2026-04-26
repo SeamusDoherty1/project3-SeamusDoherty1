@@ -1,6 +1,7 @@
 import styles from "./styles.css";
 import { projects } from "./Projects";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { InteractiveCard } from 'src/components/lightswind/interactive-card';
 const headerNames = {
   aboutMe: "About Me",
   Skills: "Skills",
@@ -51,6 +52,7 @@ function ProjectsFunc(){
               <b>{project.name}:</b>
               {' ' + project.description + ' '}
             </p>
+            <InteractiveCard>Click ME!</InteractiveCard>
             <img
               src= {project.img}
               alt = {project.name}
