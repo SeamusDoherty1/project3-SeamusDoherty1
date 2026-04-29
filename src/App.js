@@ -1,7 +1,6 @@
 import styles from "./styles.css";
 import { projects } from "./Projects";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { InteractiveCard } from 'src/components/lightswind/interactive-card';
 const headerNames = {
   aboutMe: "About Me",
   Skills: "Skills",
@@ -22,7 +21,6 @@ function AboutMeFunc(){
     <>
       <h1>{headerNames.aboutMe}</h1>
       <p>{aboutMeInformation.name},<br></br>{aboutMeInformation.DOB}, <br></br>{aboutMeInformation.University}</p>
-      
     </>
   );
 }
@@ -78,6 +76,12 @@ function Contact(){
 export default function Headers() {
    return (
     <>
+    <div>
+    <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
+	    <label for="themeSwitch" class="theme-switch__label">
+		    <span>Switch theme</span>
+	    </label>
+    </div>
     <BrowserRouter>
       {/* Navigation */}
       <nav>
