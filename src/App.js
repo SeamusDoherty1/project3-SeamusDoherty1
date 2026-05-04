@@ -1,5 +1,5 @@
 import styles from "./styles.css";
-import { projects } from "./Projects";
+import { ProjectsAPI } from "./Projects";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 const headerNames = {
@@ -116,7 +116,7 @@ export default function Headers() {
         <Route path="/aboutme" element={<AboutMeFunc />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/skills" element={<SkillsFunc />} />
-        <Route path="/projects" element={<ProjectsFunc />} />
+        <Route path="/projects" element={<ProjectsAPI />} />
       </Routes>
     </BrowserRouter>
     </body>
