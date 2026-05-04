@@ -110,7 +110,6 @@ export default function Headers() {
         <Link to="/projects">Projects</Link>
       </nav>
       </div>
-
       {/* Routes */}
       <Routes>
         <Route path="/aboutme" element={<AboutMeFunc />} />

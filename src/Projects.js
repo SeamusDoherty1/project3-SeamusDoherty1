@@ -1,46 +1,48 @@
-// 1. Initialize state to hold the data
+// File: Projects.js
 import React, { useEffect, useState } from 'react';
-  export default GitHubProfile;
-export const projects = [{
-    id: 0,
-    name: "SOBotz Scouting Application",
-    description: "This application was used to scout out information on the top performing teams in each catagory. This project taught me not only HTML, CSS, and Javascript, but how to navigate APIs and API key integration.",
-    img: "../SoBotzApplication.png",
-} , {
-    id: 1,
-    name: "Python Data Management",
-    description: "This application sorts through Grades and amount of hours studied. then it predicts if a student will pass or fail through their study hours.",
-    img: "../ThonnyFile.png"
-}];
-// Use 'export' so it can be imported elsewhere
+
 export const ProjectsAPI = () => {
-  const [data, setData] = useState(null);
+  const [repos, setRepos] = useState([]); // Initialize as an empty array
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // We define the async function inside the effect
     const fetchData = async () => {
       try {
-        const response = await fetch("https://api.github.com/users/octocat");
-        if (!response.ok) throw new Error("Failed to fetch");
+        // Updated URL to the 'repos' endpoint
+        const response = await fetch("https://api.github.com/users/SeamusDoherty1/repos"); 
+        if (!response.ok) throw new Error("Failed to fetch repositories");
+        
         const json = await response.json();
-        setData(json); // Save the object to state
+        setRepos(json); 
+        setLoading(false);
       } catch (err) {
         setError(err.message);
+        setLoading(false);
       }
     };
-
     fetchData();
-  }, []); // Run once on mount
+  }, []);
 
   if (error) return <p>Error: {error}</p>;
-  if (!data) return <p>Loading...</p>;
+  if (loading) return <p>Loading Projects...</p>;
 
   return (
-    <div>
-      <h2>GitHub Profile: {data.login}</h2>
-      <p>Bio: {data.bio}</p>
-      <p>Public Repos: {data.public_repos}</p>
+    <div className="projects-container">
+      <h1>My GitHub Projects</h1>
+      <ul style={{ listStyle: 'none', padding: 0 }}>
+        {repos.map((repo) => (
+          <li key={repo.id} style={{ marginBottom: '20px', borderBottom: '1px solid #ccc' }}>
+            {/* repo.name is the title, repo.description is the text */}
+            <h3 style={{ color: '#007bff' }}>{repo.name}</h3>
+            <p>{repo.description || "No description provided."}</p>
+            <p>{repo.language || "No language specified"}</p>
+            <a href={repo.html_url} target="_blank" rel="noreferrer">
+              View on GitHub
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
