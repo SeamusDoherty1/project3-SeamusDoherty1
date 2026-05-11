@@ -28,17 +28,6 @@ function Contact(){
     </>
   )
 }
-function darkMode(){
-    var element = document.body;
-    element.classList.toggle(".dark-mode");
-}
-function EasterEgg(){
-  return(
-    <>
-
-    </>
-  )
-}
 export default function Headers() {
    return (
     <div className="app-container"> {/* Use a div instead of body[cite: 5] */}
