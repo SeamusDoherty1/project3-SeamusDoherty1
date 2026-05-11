@@ -1,4 +1,5 @@
 {
+  "homepage": "https://<username>.github.io/portfolio",
   "name": "react.proj",
   "version": "0.0.0",
   "main": "/src/index.js",
@@ -6,7 +7,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",  
+	  "deploy": "gh-pages -d build"
+
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -46,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
