@@ -34,7 +34,7 @@ export function AboutMeFunc() {
         <h1>{headerNames.aboutMe}</h1>
         <div class="container">
                 {/* User Info from aboutMeInformation[cite: 5] */}
-                <img src="../portriat.jpg" id="portriat" class="image"></img>
+                <img src="../portriat.jpg" id="portriat" className="image" />
                 <div class="overlay">
                 <p class="text">{aboutMeInformation.name},<br />{aboutMeInformation.DOB}, <br />{aboutMeInformation.University}</p>
                       {githubData && (
