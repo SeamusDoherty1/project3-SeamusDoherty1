@@ -1,7 +1,7 @@
 {
   "homepage": "https://<username>.github.io/portfolio",
   "name": "react.proj",
-  "version": "0.0.0",
+  "version": "^0.0.0",
   "main": "/src/index.js",
   "scripts": {
     "predeploy": "npm run build",  
