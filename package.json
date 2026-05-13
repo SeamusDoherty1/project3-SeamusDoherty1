@@ -2,7 +2,7 @@
   "homepage": "seamusdoherty1.github.io/project3-SeamusDoherty1/",
   "name": "react.proj",
   "version": "0.0.0",
-  "main": "build/src/index.js",
+  "main": "src/index.js",
   "scripts": {
     "predeploy": "npm run build",  
 	  "deploy": "gh-pages -d build",
